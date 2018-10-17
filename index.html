@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Choo Choo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4 text-center">Train Schedule</h1>
+          <p class="lead text-center">Track some trains! (Choo choo)</p>
+        </div>
+    </div>
+
+    <!--Current Train Schedule
+        Name
+        Destination
+        Frequency (min)
+        Next Arrival
+        Min. away
+    -->
+    <container>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <h4>Current Train Schedule</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <ul class="list-group list-group-flush" id="nameList">
+                    <li class="list-group-item">
+                        <h5>Name</h5>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <ul class="list-group list-group-flush" id="destList">
+                    <li class="list-group-item">
+                        <h5>Destination</h5>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <ul class="list-group list-group-flush" id="freqList">
+                    <li class="list-group-item">
+                        <h5>Frequency</h5>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <ul class="list-group list-group-flush" id="arrivalList">
+                    <li class="list-group-item">
+                        <h5>Next Arrival</h5>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <ul class="list-group list-group-flush" id="minList">
+                    <li class="list-group-item">
+                        <h5>Minutes Away</h5>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </container>
+    <br>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <h4>Add Train</h4>
+    </div>
+    <container class="row">
+        <div class="col-md-1"></div>
+        <form class="col-md-10">
+          <div class="form-group">
+            <label for="trainName">Name</label>
+            <input type="text" class="form-control" id="trainName" placeholder="Name of Train">
+          </div>
+          <div class="form-group">
+            <label for="trainDestination">Destination</label>
+            <input type="text" class="form-control" id="trainDestination" placeholder="Where do you want to go?">
+          </div>
+          <div class="form-group">
+            <label for="initialTrainTime">First Train Time</label>
+            <input type="text" class="form-control" id="initialTrainTime" placeholder="HH:mm (Military time)">
+          </div>
+          <div class="form-group">
+            <label for="trainFrequency">Frequency</label>
+            <input type="text" class="form-control" id="trainFrequency" placeholder="Minutes between trains at stop">
+          </div>
+          <button class="btn btn-primary" id ="submitButton" type="submit">Submit</button>
+        </form>
+    </container>
+    <!-- Add Train
+        Name
+        Destination
+        First Train time (HH:mm)
+        Frequency (min)
+        Submit button
+    -->
+      <!-- <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+      </ul> -->
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAyA93JIwowziBMnKbZjHBQdHfQo7-lKBY",
+        authDomain: "tracking-trains.firebaseapp.com",
+        databaseURL: "https://tracking-trains.firebaseio.com",
+        projectId: "tracking-trains",
+        storageBucket: "tracking-trains.appspot.com",
+        messagingSenderId: "752227311899"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="assets/app.js"></script>
+</body>
+</html>
